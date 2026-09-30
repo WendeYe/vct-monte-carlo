@@ -1,0 +1,19 @@
+{
+  "name": "Champions Paris 2025 playoffs",
+  "training_start": "2024-01-01T00:00:00+00:00",
+  "validation_start": "2025-07-01T00:00:00+00:00",
+  "cutoff": "2025-09-25T00:00:00+00:00",
+  "teams": {
+    "624": "Paper Rex",
+    "11058": "G2 Esports",
+    "2593": "FNATIC",
+    "8185": "DRX",
+    "1001": "Team Heretics",
+    "7386": "MIBR",
+    "1034": "NRG",
+    "14419": "GIANTX"
+  },
+  "opening_matches": [["624", "11058"], ["2593", "8185"], ["1001", "7386"], ["1034", "14419"]],
+  "format_source": "https://playvalorant.com/en-us/news/esports/everything-you-need-to-know-champions-paris/",
+  "bracket_source": "https://valorantesports.com/en-US/tournament/113482263742879102/stage/113482431147251336"
+}

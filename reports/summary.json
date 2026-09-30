@@ -1,0 +1,239 @@
+{
+  "event": "Champions Paris 2025 playoffs",
+  "cutoff": "2025-09-25T00:00:00+00:00",
+  "simulations": 100000,
+  "seed": 42,
+  "k": 32,
+  "maps": 2335,
+  "evaluation": {
+    "series": 188,
+    "brier": 0.22557638891587678,
+    "log_loss": 0.6444681686275573
+  },
+  "brier_coin_flip": 0.25,
+  "log_loss_coin_flip": 0.69314718056,
+  "sensitivity": {
+    "16": [
+      {
+        "team_id": "624",
+        "rating": 1694.8185013194839,
+        "win_probability": 0.33329,
+        "final_probability": 0.48921,
+        "top_four_probability": 0.71957,
+        "mc_lower": 0.33037475266669447,
+        "mc_upper": 0.33621805550398676
+      },
+      {
+        "team_id": "11058",
+        "rating": 1694.4819753041966,
+        "win_probability": 0.33298,
+        "final_probability": 0.48842,
+        "top_four_probability": 0.71755,
+        "mc_lower": 0.3300654447614963,
+        "mc_upper": 0.33590738722619
+      },
+      {
+        "team_id": "1001",
+        "rating": 1611.362297748341,
+        "win_probability": 0.11431,
+        "final_probability": 0.32379,
+        "top_four_probability": 0.60567,
+        "mc_lower": 0.1123526523627261,
+        "mc_upper": 0.11629697983300347
+      },
+      {
+        "team_id": "2593",
+        "rating": 1611.6823666102434,
+        "win_probability": 0.07927,
+        "final_probability": 0.19566,
+        "top_four_probability": 0.47382,
+        "mc_lower": 0.07761164909609265,
+        "mc_upper": 0.08096067518949761
+      },
+      {
+        "team_id": "8185",
+        "rating": 1604.4317871287642,
+        "win_probability": 0.06784,
+        "final_probability": 0.17353,
+        "top_four_probability": 0.44618,
+        "mc_lower": 0.06629790847261387,
+        "mc_upper": 0.06941529396900113
+      },
+      {
+        "team_id": "1034",
+        "rating": 1563.2210701822137,
+        "win_probability": 0.03743,
+        "final_probability": 0.15086,
+        "top_four_probability": 0.41842,
+        "mc_lower": 0.03627118432311805,
+        "mc_upper": 0.03862435448986291
+      },
+      {
+        "team_id": "14419",
+        "rating": 1544.933429256091,
+        "win_probability": 0.02139,
+        "final_probability": 0.10478,
+        "top_four_probability": 0.34279,
+        "mc_lower": 0.020511474863342278,
+        "mc_upper": 0.02230529628757719
+      },
+      {
+        "team_id": "7386",
+        "rating": 1529.1078607543452,
+        "win_probability": 0.01349,
+        "final_probability": 0.07375,
+        "top_four_probability": 0.276,
+        "mc_lower": 0.012793447458849154,
+        "mc_upper": 0.014223930641553742
+      }
+    ],
+    "32": [
+      {
+        "team_id": "624",
+        "rating": 1792.0987277860827,
+        "win_probability": 0.50078,
+        "final_probability": 0.65909,
+        "top_four_probability": 0.82943,
+        "mc_lower": 0.497681001224887,
+        "mc_upper": 0.5038789388484551
+      },
+      {
+        "team_id": "11058",
+        "rating": 1758.676811952443,
+        "win_probability": 0.30459,
+        "final_probability": 0.49449,
+        "top_four_probability": 0.72872,
+        "mc_lower": 0.30174499432270496,
+        "mc_upper": 0.30745001884166934
+      },
+      {
+        "team_id": "1001",
+        "rating": 1645.8961237513552,
+        "win_probability": 0.05728,
+        "final_probability": 0.237,
+        "top_four_probability": 0.53494,
+        "mc_lower": 0.05585664748161052,
+        "mc_upper": 0.058737366274757015
+      },
+      {
+        "team_id": "8185",
+        "rating": 1643.6107834285397,
+        "win_probability": 0.03884,
+        "final_probability": 0.13568,
+        "top_four_probability": 0.41444,
+        "mc_lower": 0.03766005757356236,
+        "mc_upper": 0.04005537291046016
+      },
+      {
+        "team_id": "1034",
+        "rating": 1632.1837878627273,
+        "win_probability": 0.03854,
+        "final_probability": 0.17805,
+        "top_four_probability": 0.46935,
+        "mc_lower": 0.037364516098997984,
+        "mc_upper": 0.03975093743373909
+      },
+      {
+        "team_id": "2593",
+        "rating": 1631.460060020646,
+        "win_probability": 0.02809,
+        "final_probability": 0.10571,
+        "top_four_probability": 0.36286,
+        "mc_lower": 0.02708388129878148,
+        "mc_upper": 0.029132375097512802
+      },
+      {
+        "team_id": "14419",
+        "rating": 1615.7103549232725,
+        "win_probability": 0.02422,
+        "final_probability": 0.12992,
+        "top_four_probability": 0.40098,
+        "mc_lower": 0.02328528182625024,
+        "mc_upper": 0.02519127189846187
+      },
+      {
+        "team_id": "7386",
+        "rating": 1573.8641439030985,
+        "win_probability": 0.00766,
+        "final_probability": 0.06006,
+        "top_four_probability": 0.25928,
+        "mc_lower": 0.007138210720532534,
+        "mc_upper": 0.008219615293223322
+      }
+    ],
+    "64": [
+      {
+        "team_id": "624",
+        "rating": 1913.1930257411354,
+        "win_probability": 0.67682,
+        "final_probability": 0.80879,
+        "top_four_probability": 0.91321,
+        "mc_lower": 0.6739144776318671,
+        "mc_upper": 0.679711937455771
+      },
+      {
+        "team_id": "11058",
+        "rating": 1829.8300617611053,
+        "win_probability": 0.20047,
+        "final_probability": 0.44088,
+        "top_four_probability": 0.70701,
+        "mc_lower": 0.1980001194547631,
+        "mc_upper": 0.2029628931501447
+      },
+      {
+        "team_id": "1034",
+        "rating": 1724.5690754340162,
+        "win_probability": 0.03624,
+        "final_probability": 0.20314,
+        "top_four_probability": 0.52827,
+        "mc_lower": 0.03509936421496877,
+        "mc_upper": 0.03741626602457995
+      },
+      {
+        "team_id": "1001",
+        "rating": 1709.8396333444823,
+        "win_probability": 0.02889,
+        "final_probability": 0.18539,
+        "top_four_probability": 0.49111,
+        "mc_lower": 0.027869800240620458,
+        "mc_upper": 0.02994639469243499
+      },
+      {
+        "team_id": "14419",
+        "rating": 1714.4908289014536,
+        "win_probability": 0.02728,
+        "final_probability": 0.17063,
+        "top_four_probability": 0.48822,
+        "mc_lower": 0.0262883623267871,
+        "mc_upper": 0.02830795630103649
+      },
+      {
+        "team_id": "8185",
+        "rating": 1706.5466938301747,
+        "win_probability": 0.021,
+        "final_probability": 0.10623,
+        "top_four_probability": 0.39972,
+        "mc_lower": 0.02012952329623786,
+        "mc_upper": 0.02190727781801054
+      },
+      {
+        "team_id": "2593",
+        "rating": 1665.1620695756076,
+        "win_probability": 0.00632,
+        "final_probability": 0.04404,
+        "top_four_probability": 0.24712,
+        "mc_lower": 0.005847431089102722,
+        "mc_upper": 0.00683049787557817
+      },
+      {
+        "team_id": "7386",
+        "rating": 1635.1670339254192,
+        "win_probability": 0.00298,
+        "final_probability": 0.0409,
+        "top_four_probability": 0.22534,
+        "mc_lower": 0.0026607162503038185,
+        "mc_upper": 0.003337469323399183
+      }
+    ]
+  }
+}

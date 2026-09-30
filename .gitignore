@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+data/raw/
+reports/*
+!reports/chances.png
+!reports/sensitivity.png
+!reports/results.csv
+!reports/summary.json

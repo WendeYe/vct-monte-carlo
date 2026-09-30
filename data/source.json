@@ -1,0 +1,12 @@
+{
+  "source": "https://vct-reference.com/dataset/vct.duckdb",
+  "source_documentation": "https://vct-reference.com/dataset",
+  "source_terms": "https://vct-reference.com/terms",
+  "extracted_at": "2026-09-30T09:47:28.980643+00:00",
+  "database_sha256": "3d2834dd40239f2616559dedbd2c0699843e1356aa56ee2fb413a204a00ce6dd",
+  "training_start": "2024-01-01T00:00:00+00:00",
+  "cutoff_exclusive": "2025-09-25T00:00:00+00:00",
+  "maps": 2335,
+  "series": 918,
+  "filter": "Completed, non-showmatch series with all played maps present and consistent with the series score."
+}
