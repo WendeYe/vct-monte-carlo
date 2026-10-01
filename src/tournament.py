@@ -32,6 +32,9 @@ def play_bracket(openers: list[tuple[str, str]], play) -> dict[str, int]:
 
 
 def wilson_interval(wins: int, trials: int) -> tuple[float, float]:
+    """95% Wilson interval for a binomial count; covers sampling uncertainty only."""
+    if type(wins) is not int or type(trials) is not int or trials <= 0 or not 0 <= wins <= trials:
+        raise ValueError("Use integer counts with 0 <= wins <= trials and trials > 0.")
     p = wins / trials
     z = 1.96
     denominator = 1 + z * z / trials
@@ -42,7 +45,7 @@ def wilson_interval(wins: int, trials: int) -> tuple[float, float]:
 
 def simulate(openers: list[tuple[str, str]], ratings: dict[str, float], iterations: int = 100000,
              seed: int = 42) -> list[dict]:
-    if not isinstance(iterations, int) or iterations <= 0:
+    if type(iterations) is not int or iterations <= 0:
         raise ValueError("Simulation count must be a positive integer.")
     if len(openers) != 4 or any(len(pair) != 2 for pair in openers):
         raise ValueError("Provide four opening pairs in bracket order.")
@@ -67,7 +70,13 @@ def simulate(openers: list[tuple[str, str]], ratings: dict[str, float], iteratio
     rows = []
     for team in teams:
         low, high = wilson_interval(wins[team], iterations)
-        rows.append({"team_id": team, "rating": ratings[team], "win_probability": wins[team] / iterations,
-                     "final_probability": finals[team] / iterations,
-                     "top_four_probability": top_four[team] / iterations, "mc_lower": low, "mc_upper": high})
+        rows.append({
+            "team_id": team,
+            "rating": ratings[team],
+            "win_probability": wins[team] / iterations,
+            "final_probability": finals[team] / iterations,
+            "top_four_probability": top_four[team] / iterations,
+            "mc_lower": low,
+            "mc_upper": high,
+        })
     return sorted(rows, key=lambda row: row["win_probability"], reverse=True)

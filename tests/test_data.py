@@ -47,3 +47,19 @@ def test_actual_paris_results_replay_through_the_bracket():
         "NRG": 1, "FNC": 2, "DRX": 3, "PRX": 4, "TH": 5, "MIBR": 5, "G2": 7, "GX": 7
     }
     assert len(calls) == len(set(calls)) == 14
+
+
+@pytest.mark.parametrize("k", [0, -32, float("nan"), float("inf")])
+def test_evaluation_rejects_invalid_update_factor(k):
+    date = datetime(2025, 1, 1, tzinfo=timezone.utc)
+    maps = [MapResult("1", "1", date, "a", "b", "a")]
+    with pytest.raises(ValueError, match="K"):
+        evaluate_series(maps, date, datetime(2025, 1, 2, tzinfo=timezone.utc), k)
+
+
+def test_evaluation_rejects_mixed_opponents_in_one_series():
+    date = datetime(2025, 1, 1, tzinfo=timezone.utc)
+    maps = [MapResult("1", "1", date, "a", "b", "a", 1),
+            MapResult("1", "2", date, "a", "c", "c", 2)]
+    with pytest.raises(ValueError, match="teams"):
+        evaluate_series(maps, date, datetime(2025, 1, 2, tzinfo=timezone.utc))

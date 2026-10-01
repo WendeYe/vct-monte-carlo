@@ -57,6 +57,8 @@ def fit_ratings(maps: list[MapResult], cutoff: datetime, k: float = 32) -> dict[
 
 def evaluate_series(maps: list[MapResult], start: datetime, cutoff: datetime, k: float = 32) -> dict:
     """Predict each held-out series before updating ratings with any of its maps."""
+    if not isfinite(k) or k <= 0:
+        raise ValueError("Elo K must be positive and finite.")
     ratings = defaultdict(lambda: 1500.0)
     series = defaultdict(list)
     for result in maps:
@@ -66,6 +68,8 @@ def evaluate_series(maps: list[MapResult], start: datetime, cutoff: datetime, k:
     for match in sorted(series.values(), key=lambda rows: (rows[0].played_at, rows[0].match_id)):
         match.sort(key=lambda row: (row.map_order, row.map_id))
         a, b = match[0].team_a, match[0].team_b
+        if any({row.team_a, row.team_b} != {a, b} for row in match):
+            raise ValueError(f"Series {match[0].match_id} contains inconsistent teams.")
         a_wins = sum(row.winner == a for row in match)
         b_wins = len(match) - a_wins
         best_of = 2 * max(a_wins, b_wins) - 1
@@ -73,7 +77,9 @@ def evaluate_series(maps: list[MapResult], start: datetime, cutoff: datetime, k:
             p = series_probability(map_probability(ratings[a], ratings[b]), best_of)
             actual = float(a_wins > b_wins)
             bounded = min(1 - 1e-12, max(1e-12, p))
-            scores.append(((p - actual) ** 2, -(actual * log(bounded) + (1 - actual) * log(1 - bounded))))
+            brier = (p - actual) ** 2
+            log_loss = -(actual * log(bounded) + (1 - actual) * log(1 - bounded))
+            scores.append((brier, log_loss))
         for row in match:
             expected = map_probability(ratings[a], ratings[b])
             change = k * ((row.winner == a) - expected)
@@ -81,5 +87,8 @@ def evaluate_series(maps: list[MapResult], start: datetime, cutoff: datetime, k:
             ratings[b] -= change
     if not scores:
         raise ValueError("No completed series in the evaluation window.")
-    return {"series": len(scores), "brier": sum(row[0] for row in scores) / len(scores),
-            "log_loss": sum(row[1] for row in scores) / len(scores)}
+    return {
+        "series": len(scores),
+        "brier": sum(row[0] for row in scores) / len(scores),
+        "log_loss": sum(row[1] for row in scores) / len(scores),
+    }
